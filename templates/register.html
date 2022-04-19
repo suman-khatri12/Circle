@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Register </title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename = 'img/favicon.ico') }}" >
+  <link href=" {{ url_for('static', filename = 'img/apple-touch-icon.png') }}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.gstatic.com" rel="preconnect">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+
+ <link href="{{ url_for('static', filename = 'vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+        <link href="{{ url_for('static', filename = 'vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+        <link href="{{ url_for('static', filename = 'vendor/boxicons/css/boxicons.min.css') }}" rel="stylesheet">
+        <link href="{{ url_for('static', filename = 'vendor/vendor/quill/quill.snow.css') }}" rel="stylesheet">
+        <link href="{{ url_for('static', filename = 'vendor/quill/quill.bubble.css') }}" rel="stylesheet">
+        <link href="{{ url_for('static', filename = 'vendor/remixicon/remixicon.css') }}" rel="stylesheet">
+        <link href="{{ url_for('static', filename = 'vendor/simple-datatables/style.css') }}" rel="stylesheet">
+     <link href="{{ url_for('static', filename = 'css/style.css') }}" rel="stylesheet">
+
+
+  
+</head>
+
+<body>
+
+  <main>
+    <div class="container">
+
+      <section class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-6 col-md-6 d-flex flex-column align-items-center justify-content-center">
+
+              <div class="d-flex justify-content-center py-4">
+                <a href="#" class="logo d-flex align-items-center w-auto">
+                  <img src="{{ url_for('static', filename = 'img/logo.png') }}" alt="">
+                  <span class="d-none d-lg-block">CIRCle</span>
+                </a>
+              </div><!-- End Logo -->
+
+              <div class="card mb-3">
+
+                <div class="card-body">
+
+                  <div class="pt-4 pb-2">
+                    <h5 class="card-title text-center pb-0 fs-4">Create an Account</h5>
+                    <p class="text-center small">Enter your personal details to create account</p>
+                  </div>
+                        {%with messages = get_flashed_messages(with_categories = True) %}
+          {% if messages %}
+              {% for category, message in messages %}
+              <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+  <strong>{{ message }}</strong>
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+              {% endfor %}
+          {% endif %}
+          {% endwith %}
+                  <form class="row g-3 needs-validation " style="padding: 5%;" novalidate method="post" action="/register" >
+                    <div class="col-12">
+                      <label for="yourName" class="form-label">Username</label>
+                      <input type="text" name="username" class="form-control" id="yourName" required minlength="3">
+                      <div class="invalid-feedback">Please, enter your name!</div>
+                    </div>
+
+                    <div class="col-12">
+                      <label for="yourEmail" class="form-label">Your Email</label>
+                      <input type="email" name="email" class="form-control" id="yourEmail" required>
+                      <div class="invalid-feedback">Please enter a valid Email adddress!</div>
+                    </div>
+
+                    <div class="col-12">
+                      <label for="yourPhone" class="form-label">Phone</label>
+                      <div class="input-group has-validation">
+                    
+                        <input type="tel" name="phone" class="form-control" id="yourPhone" required minlength="4" maxlength="12">
+                        <div class="invalid-feedback">Please enter your phone number.</div>
+                      </div>
+                    </div>
+
+                    <div class="col-12">
+                      <label for="yourPassword" class="form-label">Password</label>
+                      <input type="password" name="password" class="form-control" id="yourPassword" required minlength="5">
+                      <div class="invalid-feedback">Please enter your password!</div>
+                    </div>
+
+                <div style="justify-content: center; align-items: center;">
+                    <div class="col-12 " style="padding: 5%; align-items: center; padding-left: 10%; padding-right: 10%; padding-bottom: 10%;" >
+                      <button class="btn w-100 " style="float: right;" type="submit">Create Account</button>
+                    </div>
+                    <div class="col-12">
+                      <p class="small text-center mb-0 mt-2">Already have an account? <a href="/login">Log in</a></p>
+                    </div>
+                  </div>
+                  </form>
+
+                </div>
+              </div>
+
+            
+
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+    </div>
+  </main><!-- End #main -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+   <script src="{{ url_for('static', filename = 'vendor/apexcharts/apexcharts.min.js') }}"></script>
+    <script src="{{ url_for('static', filename = 'vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ url_for('static', filename = 'vendor/chart.js/chart.min.js') }}"></script>
+    <script src="{{ url_for('static', filename = 'vendor/echarts/echarts.min.js') }}"></script>
+    <script src="{{ url_for('static', filename = 'vendor/quill/quill.min.js') }}"></script>
+    <script src="{{ url_for('static', filename = 'vendor/simple-datatables/simple-datatables.js') }}"></script>
+    <script src="{{ url_for('static', filename = 'vendor/tinymce/tinymce.min.js') }}"></script>
+    <script src="{{ url_for('static', filename = 'vendor/php-email-form/validate.js') }}"></script>
+
+  <!-- Template Main JS File -->
+    <script src="{{ url_for('static', filename = 'js/main.js') }}"></script>
+</body>
+
+</html>
